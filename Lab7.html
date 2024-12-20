@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Lab7.css">
+  <!-- css is used to design the style -->
+</head>
+
+  <body>
+    <div>
+      <input type="number" id="math" placehoider="Math">
+      <input type="number" id="english" placehoider="English">
+      <!-- type:enter number only, id:一個唯一的ID, placeholder:indicating prompt text in the input box -->
+      <button onclick="addRow()">Submit</button>
+      <!-- after clicking, performing addRow() function in js-->
+    </div>
+
+    <table border="1" id="scoresTable">
+      <!-- table:表格, border:表格有邊界 -->
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Math</th>
+          <th>English</th>
+          <th>Average</th>
+        </tr>
+      </thead>
+      <!-- thead:the head of the form, tr:a row, th:加粗的表頭欄位文字 -->
+
+      <tbody>
+        <!-- rows will be dynamically added here by js -->
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <th>Average</th>
+          <th id="mathAvg">0.00</th>
+          <th id="englishAvg">0.00</th>
+          <th id="totalAvg">0.00</th>
+        </tr>
+      </tfoot>
+    </table>
+    <!-- tfoot:the buttom of the form -->
+
+    <script src="Lab7.js"></script>
+  </body>
+  </html>
