@@ -1,10 +1,24 @@
-function addRow() {
-  const mathInput = document.getElementById("math");
+
+const mathInput = document.getElementById("math");
   const englishInput = document.getElementById("english");
   // store values in math or english
-  const tableBody = document.querySelector("#scoresTable tbody");
   // store in tbody
-  const mathScore = Number(mathInput.value);
+function showPlaceholder(input, placeholder) {
+  if (input.value.trim() === "") {
+    input.placeholder = placeholder;
+  } else {
+    input.placeholder = "";
+  }
+}
+
+mathInput.addEventListener("input", function() {
+  showPlaceholder(this, "enter Math score");
+});
+englishInput.addEventListener("input", function() {
+  showPlaceholder(this, "enter English score");
+});
+function addRow() {
+ const mathScore = Number(mathInput.value);
   const englishScore = Number(englishInput.value);
   // transfer stored values into numbers
   if (isNaN(mathScore) || isNaN(englishScore)) {
@@ -14,6 +28,7 @@ function addRow() {
   }
   const average = ((mathScore + englishScore) / 2).toFixed(2);
   // toFixed(2): 保留小數點後兩位
+  const tableBody = document.querySelector("#scoresTable tbody");
   const newRow = document.createElement("tr");
   // create a new row
   newRow.innerHTML = `
@@ -28,6 +43,8 @@ function addRow() {
   updateAverages();
   mathInput.value = "";
   englishInput.value = "";
+  showPlaceholder(mathInput, "Math");
+  showPlaceholder(englishInput, "English");
 }
 
 function updateAverages() {
